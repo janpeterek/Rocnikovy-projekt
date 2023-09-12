@@ -1,6 +1,6 @@
 # Rocnikovy-projekt
 
-Mým cílem je dosáhnout projektu, který 
+Mým cílem je dosáhnout projektu, který umožní uživateli se přihlásit do aplikace a hodnotit místní kuchaře.
 
 
 https://www.geeksforgeeks.org/login-and-registration-project-using-flask-and-mysql/
