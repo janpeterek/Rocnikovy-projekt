@@ -6,6 +6,8 @@ Mým cílem je dosáhnout projektu, který umožní uživateli se přihlásit do
 12.9. Vymýšlení projektu
 18.9. Procházení zdrojů na internetu 
 19.9  Procházení zdrojů na internetu
+26.9. Instalace pythonu, flasku atd...
+29.9. Tvoření první aplikace
 
 
 
