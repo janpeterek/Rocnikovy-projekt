@@ -8,6 +8,9 @@ Mým cílem je dosáhnout projektu, který umožní uživateli se přihlásit do
 19.9  Procházení zdrojů na internetu
 26.9. Instalace pythonu, flasku atd...
 29.9. Tvoření první aplikace
+      Vytvoření admina
+      První spuštení na localhostu
+      Oprava chyby v config.py
 
 
 
