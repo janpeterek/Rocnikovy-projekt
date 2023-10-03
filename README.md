@@ -11,6 +11,8 @@ Mým cílem je dosáhnout projektu, který umožní uživateli se přihlásit do
       Vytvoření admina
       První spuštení na localhostu
       Oprava chyby v config.py
+3.10. Přidání migrations
+      Úprava databáze
 
 
 
