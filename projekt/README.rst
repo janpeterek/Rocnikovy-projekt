@@ -1,18 +1,24 @@
-Base Skeleton to start your application using Flask-AppBuilder
---------------------------------------------------------------
+Quick How to Example
+--------------------
 
-- Install it::
+Simple contacts application with flask-migrate.
 
-	pip install flask-appbuilder
-	git clone https://github.com/dpgaspar/Flask-AppBuilder-Skeleton.git
+Use of Flask-Migrate (Use Flask>0.11.0)::
 
-- Run it::
+    $ export FLASK_APP=app/__init__.py
+    $ flask db init
+    $ flask db migrate
+    # Check the migration script
+    $ flask db upgrate --sql
+    $ flask db upgrade
 
-    $ export FLASK_APP=app
-    # Create an admin user
+Insert test data::
+
+    $ python testdata.py
+
+Run it::
+
+    $ export FLASK_APP=app/__init__.py
     $ flask fab create-admin
-    # Run dev server
     $ flask run
 
-
-That's it!!
