@@ -13,6 +13,7 @@ Mým cílem je dosáhnout projektu, který umožní uživateli se přihlásit do
       Oprava chyby v config.py
 3.10. Přidání migrations
       Úprava databáze
+8.10. Tvoření návrhu databáze
 
 
 
