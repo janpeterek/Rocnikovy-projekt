@@ -1,6 +1,6 @@
 # Rocnikovy-projekt
 
-Mým cílem je dosáhnout projektu, který umožní uživateli se přihlásit do webové aplikace a hodnotit místní kuchaře.
+Mým cílem je dosáhnout projektu, který umožní uživateli se přihlásit do webové aplikace a hodnotit místní kuchaře. Uživatel bude moct po zaregistrování do databáze hodnotit restaurace a kuchaře. Všechny restaurace i kuchaři budou mít v databázi základní informace, jako je například jejich kontakt nebo hodnocení. Zákázník bude mít možnost po návštěvě dát restauraci i kuchaři 1-5 hvězd, podle toho, jak se mu jejich služby líbily. Také bude mít možnost zanechat komentář, kde může zmínit nedostatky, nebo naopak pochvaly. Jeho hodnocení a komentář si pak budou moct přečíst i ostatní uživatelé. Cílem aplikace je, aby si uživatelé mohli projít restaurace a kuchaře v okolí a rozhodnout se, kam se půjdou najíst.
 
 19.6. Založení projektu
 12.9. Vymýšlení projektu
@@ -14,6 +14,8 @@ Mým cílem je dosáhnout projektu, který umožní uživateli se přihlásit do
 3.10. Přidání migrations
       Úprava databáze
 8.10. Tvoření návrhu databáze
+10.10. Úprava návrhu databáze
+       Úprava README
 
 
 
