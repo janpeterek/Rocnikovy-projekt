@@ -16,6 +16,12 @@ Mým cílem je dosáhnout projektu, který umožní uživateli se přihlásit do
 8.10. Tvoření návrhu databáze
 10.10. Úprava návrhu databáze
        Úprava README
+14.10. Řešení problému při spuštění aplikace
+15.10. Řešení problému při spuštění aplikace
+16.10. Vyřešení problému při spuštění aplikace
+       Změna verze werkzeug z 3.0.0 na 2.3.7, která je kompatiblní s flaskem
+       Změna vzhledu aplikace
+      
 
 
 
