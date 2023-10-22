@@ -21,7 +21,7 @@ Mým cílem je dosáhnout projektu, který umožní uživateli se přihlásit do
 16.10. - Vyřešení problému při spuštění aplikace
        - Změna verze werkzeug z 3.0.0 na 2.3.7, která je kompatiblní s flaskem
        - Změna vzhledu aplikace
-      
+22.10. - Vytvoření všech potřebných modelů v models.py
 
 
 
