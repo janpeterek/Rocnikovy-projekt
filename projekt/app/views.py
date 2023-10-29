@@ -6,7 +6,7 @@ from flask_appbuilder.models.group import aggregate_count
 from flask_appbuilder.models.sqla.interface import SQLAInterface
 
 from . import appbuilder, db
-from .models import Contact, ContactGroup, Gender, Vyrobce
+from .models import Contact, ContactGroup, Gender, Vyrobce, User, Visit, Rating, Chef, Restaurant, ChefRating, FavoriteFood
 
 
 def fill_gender():
@@ -16,6 +16,63 @@ def fill_gender():
         db.session.commit()
     except Exception:
         db.session.rollback()
+
+
+class UserView(ModelView):
+    datamodel = SQLAInterface(User)
+
+    list_columns = ['id', 'first_name', 'last_name', 'registration_date', 'rating_count']
+
+    base_order = ("last_name", "asc")
+
+
+class VisitView(ModelView):
+    datamodel = SQLAInterface(Visit)
+
+    list_columns = ['id', 'date', 'price', 'food', 'user.first_name', 'user.last_name']
+
+    base_order = ("date", "asc")
+
+class RatingView(ModelView):
+    datamodel = SQLAInterface(Rating)
+
+    list_columns = ['id', 'stars', 'comment', 'visit.date', 'restaurant.name']
+
+    base_order = ("stars", "asc")
+
+class ChefView(ModelView):
+    datamodel = SQLAInterface(Chef)
+
+    list_columns = ['id', 'first_name', 'last_name', 'birth_date', 'average_rating', 'working_restaurant.name']
+
+    base_order = ("last_name", "asc")
+
+
+class RestaurantView(ModelView):
+    datamodel = SQLAInterface(Restaurant)
+
+    list_columns = ['id', 'name', 'address', 'opening_year', 'average_rating', 'phone']
+
+    base_order = ("name", "asc")
+
+class ChefRatingView(ModelView):
+    datamodel = SQLAInterface(ChefRating)
+
+    list_columns = ['id', 'stars', 'comment', 'visit.date', 'chef.first_name', 'chef.last_name']
+
+    base_order = ("stars", "asc")
+
+
+
+    
+
+
+class FavoriteFoodView(ModelView):
+    datamodel = SQLAInterface(FavoriteFood)
+
+    list_columns = ['id', 'food_name', 'chef.first_name', 'chef.last_name']
+
+    base_order = ("food_name", "asc")
 
 
 class ContactModelView(ModelView):
@@ -121,25 +178,63 @@ class ContactTimeChartView(GroupByChartView):
 
 
 appbuilder.add_view(
-    GroupModelView,
-    "List Groups",
+    UserView,
+    "Seznam uživatelů",
+    icon="fa-users-line",
+    category="Uživatelé",
+    category_icon="fa-envelope"
+)
+
+appbuilder.add_view(
+    VisitView,
+    "Seznam návštěv",
     icon="fa-folder-open-o",
-    category="Contacts",
-    category_icon="fa-envelope",
+    category="Návštěvy",
+    category_icon="fa-solid fa-shop"
 )
+
 appbuilder.add_view(
-    ContactModelView, "List Contacts", icon="fa-envelope", category="Contacts"
+    RatingView,
+    "Seznam hodnocení",
+    icon="fa-regular fa-star",
+    category="Hodnocení",
+    category_icon="fa-star"
 )
-appbuilder.add_separator("Contacts")
+
 appbuilder.add_view(
-    ContactChartView, "Contacts Chart", icon="fa-dashboard", category="Contacts"
+    ChefRatingView,
+    "Seznam hodnocení kuchaře",
+    icon="fa-regular fa-star",
+    category="Hodnocení",
+    category_icon="fa-star"
 )
+
 appbuilder.add_view(
-    VyrobceView, "Vyrobce", icon="fa-dashboard", category="Contacts"
+    RestaurantView,
+    "Seznam restaurací",
+    icon="fa-folder-open-o",
+    category="Restaurace",
+    category_icon="fa-cutlery"
 )
+
 appbuilder.add_view(
-    ContactTimeChartView,
-    "Contacts Birth Chart",
-    icon="fa-dashboard",
-    category="Contacts",
+    ChefView,
+    "Seznam šéfkuchařů",
+    icon="fa-users",
+    category="Šéfkuchaři",
+    category_icon="fa-kitchen-set"
 )
+
+appbuilder.add_view(
+    FavoriteFoodView,
+    "Seznam oblíbených jídel",
+    icon="fa-cutlery",
+    category="Oblíbená jídla",
+    category_icon="fa-pizza-slice"
+)
+
+
+
+
+
+

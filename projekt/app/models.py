@@ -1,7 +1,7 @@
 import datetime
 
 from flask_appbuilder import Model
-from sqlalchemy import Column, Date, ForeignKey, Integer, String, Numeric, func
+from sqlalchemy import Column, Date, ForeignKey, Integer, LargeBinary, String, Enum, Numeric, func
 from sqlalchemy.orm import relationship
 
 mindate = datetime.date(datetime.MINYEAR, 1, 1)
@@ -24,13 +24,13 @@ class Visit(Model):
     food = Column(String(100), nullable=False)
 
     user_id = Column(Integer, ForeignKey('user.id'), nullable=False)
-    rating = relationship('Rating', uselist=False, back_populates='visit')
-    chef_rating = relationship('ChefRating', uselist=False, back_populates='visit')
+    rating = relationship('Rating', lazy=True, back_populates='visit')
+    chef_rating = relationship('ChefRating', lazy=True, back_populates='visit')
 
 
 class Rating(Model):
     id = Column(Integer, primary_key=True)
-    stars = Column(Integer, nullable=False)
+    stars = Column(Enum('1', '2', '3', '4', '5', name='rating_enum'), nullable=False)
     comment = Column(String(500))
 
     visit_id = Column(Integer, ForeignKey('visit.id'), nullable=False)
@@ -40,7 +40,7 @@ class Rating(Model):
 
 class ChefRating(Model):
     id = Column(Integer, primary_key=True)
-    stars = Column(Integer, nullable=False)
+    stars = Column(Enum('1', '2', '3', '4', '5', name='rating_enum'), nullable=False)
     comment = Column(String(500))
 
     visit_id = Column(Integer, ForeignKey('visit.id'), nullable=False)
@@ -56,14 +56,13 @@ class Restaurant(Model):
     opening_year = Column(Integer)
     average_rating = Column(Numeric, default=0.0, onupdate=func.coalesce(func.avg(Rating.stars), 0))
     chefs = relationship('Chef', backref='restaurant', lazy=True)
-    photo = Column(String(200))
+    photo = Column(LargeBinary)
     website = Column(String(100))
     ico = Column(String(15))
     phone = Column(String(20))
     opening_hours = Column(String(100))
 
     ratings = relationship('Rating', backref='restaurant', lazy=True)
-    chefs = relationship('Chef', backref='working_restaurant', lazy=True)
 
 
 class Chef(Model):
@@ -71,11 +70,10 @@ class Chef(Model):
     first_name = Column(String(50), nullable=False)
     last_name = Column(String(50), nullable=False)
     birth_date = Column(Date, nullable=False)
-    photo = Column(String(200))
+    photo = Column(LargeBinary)
     contact = Column(String(100))
 
     working_restaurant_id = Column(Integer, ForeignKey('restaurant.id'))
-    restaurant = relationship('Restaurant', back_populates='chefs')
     chef_ratings = relationship('ChefRating', back_populates='chef')
     average_rating = Column(Numeric, default=0.0, onupdate=func.coalesce(func.avg(ChefRating.stars), 0))
     favorite_foods = relationship('FavoriteFood', back_populates='chef')
