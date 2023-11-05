@@ -16,16 +16,24 @@ class User(Model):
 
     visits = relationship('Visit', backref='user', lazy=True)
 
+    def __repr__(self):
+        return f"{self.first_name} {self.last_name}"
+
+
 
 class Visit(Model):
     id = Column(Integer, primary_key=True)
     date = Column(Date, nullable=False)
     price = Column(Numeric(10, 2), nullable=False)
-    food = Column(String(100), nullable=False)
+    food = Column(Enum('svíčková', 'guláš', 'řízek', name='food_enum'), nullable=False)
 
     user_id = Column(Integer, ForeignKey('user.id'), nullable=False)
     rating = relationship('Rating', lazy=True, back_populates='visit')
     chef_rating = relationship('ChefRating', lazy=True, back_populates='visit')
+
+    def __repr__(self):
+        return f"Visit(id={self.id}, date={self.date}, price={self.price}, food='{self.food}', user_id={self.user_id})"
+
 
 
 class Rating(Model):
@@ -36,6 +44,10 @@ class Rating(Model):
     visit_id = Column(Integer, ForeignKey('visit.id'), nullable=False)
     visit = relationship('Visit', back_populates='rating')
     restaurant_id = Column(Integer, ForeignKey('restaurant.id'), nullable=False)
+
+    def __repr__(self):
+        return f"Rating(id={self.id}, stars={self.stars}, comment='{self.comment}', visit_id={self.visit_id}, restaurant_id={self.restaurant_id})"
+
 
 
 class ChefRating(Model):
@@ -48,6 +60,10 @@ class ChefRating(Model):
     chef_id = Column(Integer, ForeignKey('chef.id'), nullable=False)
     chef = relationship('Chef', back_populates='chef_ratings')
 
+    def __repr__(self):
+        return f"ChefRating(id={self.id}, stars={self.stars}, comment='{self.comment}', visit_id={self.visit_id}, chef_id={self.chef_id})"
+
+
 
 class Restaurant(Model):
     id = Column(Integer, primary_key=True)
@@ -56,7 +72,6 @@ class Restaurant(Model):
     opening_year = Column(Integer)
     average_rating = Column(Numeric, default=0.0, onupdate=func.coalesce(func.avg(Rating.stars), 0))
     chefs = relationship('Chef', backref='restaurant', lazy=True)
-    photo = Column(LargeBinary)
     website = Column(String(100))
     ico = Column(String(15))
     phone = Column(String(20))
@@ -64,13 +79,16 @@ class Restaurant(Model):
 
     ratings = relationship('Rating', backref='restaurant', lazy=True)
 
+    def __repr__(self):
+        return self.name
+
+
 
 class Chef(Model):
     id = Column(Integer, primary_key=True)
     first_name = Column(String(50), nullable=False)
     last_name = Column(String(50), nullable=False)
     birth_date = Column(Date, nullable=False)
-    photo = Column(LargeBinary)
     contact = Column(String(100))
 
     working_restaurant_id = Column(Integer, ForeignKey('restaurant.id'))
@@ -78,12 +96,20 @@ class Chef(Model):
     average_rating = Column(Numeric, default=0.0, onupdate=func.coalesce(func.avg(ChefRating.stars), 0))
     favorite_foods = relationship('FavoriteFood', back_populates='chef')
 
+    def __repr__(self):
+        return f"{self.first_name} {self.last_name}"
+
+
 
 class FavoriteFood(Model):
     id = Column(Integer, primary_key=True)
     food_name = Column(String(100), nullable=False)
     chef_id = Column(Integer, ForeignKey('chef.id'), nullable=False)
     chef = relationship('Chef', back_populates='favorite_foods')
+
+    def __repr__(self):
+        return self.food_name
+
 
 
 
