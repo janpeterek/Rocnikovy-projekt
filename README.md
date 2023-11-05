@@ -22,11 +22,12 @@ Mým cílem je dosáhnout projektu, který umožní uživateli se přihlásit do
        - Změna verze werkzeug z 3.0.0 na 2.3.7, která je kompatiblní s flaskem
        - Změna vzhledu aplikace
 22.10. - Vytvoření všech potřebných modelů v models.py
-29.10  - Vytvoření modelů ve views.py
+29.10. - Vytvoření modelů ve views.py
          Změna databáze
          Úprava vztahů mezi modely
          Řešení chyb
          Tvoření prvních zápisů dat do aplikace
+5.11.  - Úprava modelů
          
          
 
