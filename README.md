@@ -28,6 +28,7 @@ Mým cílem je dosáhnout projektu, který umožní uživateli se přihlásit do
          Řešení chyb
          Tvoření prvních zápisů dat do aplikace
 5.11.  - Úprava modelů
+6.11.  - Přidávání fotek
          
          
 
