@@ -29,7 +29,11 @@ Mým cílem je dosáhnout projektu, který umožní uživateli se přihlásit do
          Tvoření prvních zápisů dat do aplikace
 5.11.  - Úprava modelů
 6.11.  - Přidávání fotek
-11.10. - Přidání Dockeru
+11.11. - Přidání Dockeru
+14.11. - Zprovoznění Docker serveru
+18.11. - Propojování s MongoDB
+
+
          
          
 
