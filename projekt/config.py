@@ -20,7 +20,7 @@ OPENID_PROVIDERS = [
 #SQLALCHEMY_POOL_RECYCLE = 3
 MONGODB_SETTINGS = {
     'db': 'flaskdb',
-    'host': 'mongodb://mongodbuser:mongodbuser@mongodb:33420/flaskdb'
+    'host': 'mongodb://root:example@mongodb:33420/flaskdb'
 }
 BABEL_DEFAULT_LOCALE = "en"
 BABEL_DEFAULT_FOLDER = "translations"
