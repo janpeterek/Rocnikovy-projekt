@@ -32,20 +32,7 @@ Mým cílem je dosáhnout projektu, který umožní uživateli se přihlásit do
 11.11. - Přidání Dockeru
 14.11. - Zprovoznění Docker serveru
 18.11. - Propojování s MongoDB
-
+19.11. - Úprava Docker souboru
 
          
          
-
-
-
-
-https://www.geeksforgeeks.org/login-and-registration-project-using-flask-and-mysql/
-https://www.geeksforgeeks.org/single-page-portfolio-using-flask/
-https://www.geeksforgeeks.org/profile-application-using-python-flask-and-mysql/
-https://www.digitalocean.com/community/tutorials/how-to-make-a-web-application-using-flask-in-python-3
-https://www.youtube.com/watch?v=Z1RJmh_OqeA
-https://www.tutorialspoint.com/flask/flask_sqlalchemy.htm
-https://flask-appbuilder.readthedocs.io/en/latest/quickfiles.html
-https://www.itnetwork.cz/python/sqlalchemy/sqlalchemy-uvod-a-instalace
-https://github.com/dpgaspar/Flask-AppBuilder/blob/master/examples/mongoimages/testdata.py
