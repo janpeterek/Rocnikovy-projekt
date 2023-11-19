@@ -4,7 +4,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile-flask
+      dockerfile: Dockerfile
     volumes:
       - type: bind
         source: app/static
@@ -17,7 +17,7 @@ services:
     ports:
       - 8000:8000
     environment:
-      SQLALCHEMY_DATABASE_URI: 'mysql+pymysql://root:example@db/flask'
+      SQLALCHEMY_DATABASE_URI: 'mongodb://root:example@db/flaskdb'
   
   mongodb:
     image: mongo:4.0.8
@@ -41,8 +41,8 @@ services:
       - 8081:8081
     environment:
       ME_CONFIG_MONGODB_SERVER: 'mongodb'
-      ME_CONFIG_MONGODB_ADMINUSERNAME: mongodbuser
-      ME_CONFIG_MONGODB_ADMINPASSWORD: mongodbuser
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
   db:
     image: mariadb
 ##     restart: always
