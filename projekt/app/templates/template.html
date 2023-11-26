@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body>
+    <h1>User Profile</h1>
+    
+    <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+    <p>Registration Date: {{ user.registration_date }}</p>
+    <p>Rating Count: {{ user.rating_count }}</p>
+
+    <h3>Visits</h3>
+    <ul>
+        {% for visit in user.visits %}
+            <li>
+                Visit ID: {{ visit.id }}<br>
+                Date: {{ visit.date }}<br>
+                Price: {{ visit.price }}<br>
+                Food: {{ visit.food }}<br>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h3>Chef Ratings</h3>
+    <ul>
+        {% for chef_rating in user.chef_ratings %}
+            <li>
+                Chef Rating ID: {{ chef_rating.id }}<br>
+                Stars: {{ chef_rating.stars }}<br>
+                Comment: {{ chef_rating.comment }}<br>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h3>Favorite Foods</h3>
+    <ul>
+        {% for favorite_food in user.favorite_foods %}
+            <li>{{ favorite_food.food_name }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
