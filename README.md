@@ -33,6 +33,7 @@ Mým cílem je dosáhnout projektu, který umožní uživateli se přihlásit do
 14.11. - Zprovoznění Docker serveru
 18.11. - Propojování s MongoDB
 19.11. - Úprava Docker souboru
+26.11. - Vytvoření šablony
 
          
          
