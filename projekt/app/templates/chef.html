@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chef Information</title>
+</head>
+<body>
+
+<h1>Chef Information</h1>
+<p><strong>ID:</strong> {{ chef.id }}</p>
+<p><strong>First Name:</strong> {{ chef.first_name }}</p>
+<p><strong>Last Name:</strong> {{ chef.last_name }}</p>
+<p><strong>Birth Date:</strong> {{ chef.birth_date }}</p>
+<p><strong>Contact:</strong> {{ chef.contact }}</p>
+<p><strong>Working Restaurant ID:</strong> {{ chef.working_restaurant_id }}</p>
+<p><strong>Average Rating:</strong> {{ chef.average_rating }}</p>
+
+<h2>Chef Ratings</h2>
+{% for chef_rating in chef.chef_ratings %}
+    <p><strong>Stars:</strong> {{ chef_rating.stars }}</p>
+    <p><strong>Comment:</strong> {{ chef_rating.comment }}</p>
+{% endfor %}
+
+<h2>Favorite Foods</h2>
+{% for favorite_food in chef.favorite_foods %}
+    <p>{{ favorite_food.food_name }}</p>
+{% endfor %}
+
+</body>
+</html>

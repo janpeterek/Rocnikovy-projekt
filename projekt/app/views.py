@@ -4,6 +4,7 @@ from flask_appbuilder import ModelView
 from flask_appbuilder.charts.views import GroupByChartView
 from flask_appbuilder.models.group import aggregate_count
 from flask_appbuilder.models.sqla.interface import SQLAInterface
+from flask import render_template
 
 from . import appbuilder, db
 from .models import Contact, ContactGroup, Gender, Vyrobce, User, Visit, Rating, Chef, Restaurant, ChefRating, FavoriteFood
@@ -25,6 +26,10 @@ class UserView(ModelView):
 
     base_order = ("last_name", "asc")
 
+    def user_detail(self, pk):
+        user = self.datamodel.get(pk)
+        return render_template('user.thml', user=user)
+
 
 class VisitView(ModelView):
     datamodel = SQLAInterface(Visit)
@@ -33,6 +38,11 @@ class VisitView(ModelView):
 
     base_order = ("date", "asc")
 
+    def visit_detail(self, pk):
+        visit = self.datamodel.get(pk)
+        return render_template('visit.html', visit=visit)
+
+
 class RatingView(ModelView):
     datamodel = SQLAInterface(Rating)
 
@@ -40,12 +50,22 @@ class RatingView(ModelView):
 
     base_order = ("stars", "asc")
 
+    def rating_detail(rating_id):
+        rating = Rating.query.get_or_404(rating_id)
+        return render_template('rating.html', rating=rating)
+
 class ChefView(ModelView):
     datamodel = SQLAInterface(Chef)
 
     list_columns = ['id', 'first_name', 'last_name', 'birth_date', 'average_rating', 'working_restaurant.name']
 
     base_order = ("last_name", "asc")
+
+    def chef_detail(chef_id):
+        chef = Chef.query.get_or_404(chef_id)
+        return render_template('chef.html', chef=chef)
+
+    
 
 
 class RestaurantView(ModelView):
@@ -55,12 +75,22 @@ class RestaurantView(ModelView):
 
     base_order = ("name", "asc")
 
+    def restaurant_detail(restaurant_id):
+        restaurant = Restaurant.query.get_or_404(restaurant_id)
+        return render_template('restaurant.html', restaurant=restaurant)
+
+
 class ChefRatingView(ModelView):
     datamodel = SQLAInterface(ChefRating)
 
     list_columns = ['id', 'stars', 'comment', 'visit.date', 'chef.first_name', 'chef.last_name']
 
     base_order = ("stars", "asc")
+
+
+    def chef_rating_detail(chef_rating_id):
+        chef_rating = ChefRating.query.get_or_404(chef_rating_id)
+        return render_template('chef_rating.html', chef_rating=chef_rating)
 
 
 
@@ -73,6 +103,10 @@ class FavoriteFoodView(ModelView):
     list_columns = ['id', 'food_name', 'chef.first_name', 'chef.last_name']
 
     base_order = ("food_name", "asc")
+
+    def favorite_food_detail(favorite_food_id):
+        favorite_food = FavoriteFood.query.get_or_404(favorite_food_id)
+        return render_template('favorite_food.html', favorite_food=favorite_food)
 
 
 class ContactModelView(ModelView):

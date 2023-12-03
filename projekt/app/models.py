@@ -12,12 +12,13 @@ class User(Model):
     first_name = Column(String(50), nullable=False)
     last_name = Column(String(50), nullable=False)
     registration_date = Column(Date, nullable=False)
-    rating_count = Column(Integer, default=0)
+    
 
     visits = relationship('Visit', backref='user', lazy=True)
 
     def __repr__(self):
         return f"{self.first_name} {self.last_name}"
+    
 
 
 
@@ -70,7 +71,6 @@ class Restaurant(Model):
     name = Column(String(100), nullable=False)
     address = Column(String(200), nullable=False)
     opening_year = Column(Integer)
-    average_rating = Column(Numeric, default=0.0, onupdate=func.coalesce(func.avg(Rating.stars), 0))
     chefs = relationship('Chef', backref='restaurant', lazy=True)
     website = Column(String(100))
     ico = Column(String(15))
