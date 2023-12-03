@@ -34,6 +34,9 @@ Mým cílem je dosáhnout projektu, který umožní uživateli se přihlásit do
 18.11. - Propojování s MongoDB
 19.11. - Úprava Docker souboru
 26.11. - Vytvoření šablony
+2.12. - Vracení se k SQLite
+3.12. - Úprava modelů
+        Tvoření html šablon pro modely
 
          
          
