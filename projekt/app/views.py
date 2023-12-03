@@ -43,11 +43,7 @@ class RatingView(ModelView):
 class ChefView(ModelView):
     datamodel = SQLAInterface(Chef)
 
-    list_columns = ['id', 'first_name', 'last_name', 'birth_date', 'average_rating', 'photo']
-
-    list_columns = ['photo_img_thumbnail', 'name']
-    
-    show_columns = ['photo_img','name']
+    list_columns = ['id', 'first_name', 'last_name', 'birth_date', 'average_rating', 'working_restaurant.name']
 
     base_order = ("last_name", "asc")
 
