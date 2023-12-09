@@ -37,6 +37,9 @@ Mým cílem je dosáhnout projektu, který umožní uživateli se přihlásit do
 2.12. - Vracení se k SQLite
 3.12. - Úprava modelů
         Tvoření html šablon pro modely
-
+5.12. - Úprava views
+9.12. - Přidávání registrace uživatele
+        Přidání reCAPTCHA
+        Úprava base.html
          
          
