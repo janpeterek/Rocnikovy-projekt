@@ -3,6 +3,7 @@ import logging
 from flask import Flask
 from flask_appbuilder import AppBuilder, SQLA
 from flask_migrate import Migrate
+from app.index import MyIndexView
 
 logging.basicConfig(format="%(asctime)s:%(levelname)s:%(name)s:%(message)s")
 logging.getLogger().setLevel(logging.DEBUG)
@@ -11,6 +12,6 @@ app = Flask(__name__)
 app.config.from_object("config")
 db = SQLA(app)
 migrate = Migrate(app, db)
-appbuilder = AppBuilder(app, db.session)
+appbuilder = AppBuilder(app, db.session, indexview=MyIndexView)
 
 from . import models, views  # noqa

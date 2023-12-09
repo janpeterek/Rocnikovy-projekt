@@ -1,4 +1,5 @@
 import os
+from flask_appbuilder.security.manager import AUTH_DB
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -41,8 +42,18 @@ LANGUAGES = {
 UPLOAD_FOLDER = basedir + "/app/static/uploads/"
 IMG_UPLOAD_FOLDER = basedir + "/app/static/uploads/"
 IMG_UPLOAD_URL = "/static/uploads/"
-AUTH_TYPE = 1
-# AUTH_LDAP_SERVER = "ldap://dc.domain.net"
+AUTH_TYPE = AUTH_DB
+AUTH_USER_REGISTRATION = True
+AUTH_USER_REGISTRATION_ROLE = 'Public'
+RECAPTCHA_PUBLIC_KEY = '6LcUyyspAAAAAFUh76Dr70gqLKjguyQMENfG22-e'
+RECAPTCHA_PRIVATE_KEY = '6LcUyyspAAAAAG_j0gxW2Xi47SFbhyQ6gEb3MwPc'
+MAIL_PORT = 587
+MAIL_USE_SSL = False
+MAIL_SERVER = "smtp.gmail.com"
+MAIL_USE_TLS = True
+MAIL_USERNAME = "fabtest10@gmail.com"
+MAIL_PASSWORD = "Passw0rdqwerty"
+MAIL_DEFAULT_SENDER = "fabtest10@gmail.com"
 AUTH_ROLE_ADMIN = "Admin"
 AUTH_ROLE_PUBLIC = "Public"
 APP_NAME = "Restaurace"

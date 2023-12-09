@@ -22,13 +22,13 @@ def fill_gender():
 class UserView(ModelView):
     datamodel = SQLAInterface(User)
 
-    list_columns = ['id', 'first_name', 'last_name', 'registration_date', 'rating_count']
+    list_columns = ['id', 'first_name', 'last_name', 'registration_date']
 
     base_order = ("last_name", "asc")
 
     def user_detail(self, pk):
         user = self.datamodel.get(pk)
-        return render_template('user.thml', user=user)
+        return render_template('/templates/user.thml', user=user)
 
 
 class VisitView(ModelView):
@@ -57,7 +57,7 @@ class RatingView(ModelView):
 class ChefView(ModelView):
     datamodel = SQLAInterface(Chef)
 
-    list_columns = ['id', 'first_name', 'last_name', 'birth_date', 'average_rating', 'working_restaurant.name']
+    list_columns = ['first_name', 'last_name', 'birth_date', 'contact']
 
     base_order = ("last_name", "asc")
 
@@ -71,7 +71,7 @@ class ChefView(ModelView):
 class RestaurantView(ModelView):
     datamodel = SQLAInterface(Restaurant)
 
-    list_columns = ['id', 'name', 'address', 'opening_year', 'average_rating', 'phone']
+    list_columns = ['name', 'address', 'opening_year', 'phone']
 
     base_order = ("name", "asc")
 
@@ -100,7 +100,7 @@ class ChefRatingView(ModelView):
 class FavoriteFoodView(ModelView):
     datamodel = SQLAInterface(FavoriteFood)
 
-    list_columns = ['id', 'food_name', 'chef.first_name', 'chef.last_name']
+    list_columns = ['food_name', 'chef.first_name', 'chef.last_name']
 
     base_order = ("food_name", "asc")
 

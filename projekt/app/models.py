@@ -3,6 +3,7 @@ import datetime
 from flask_appbuilder import Model
 from sqlalchemy import Column, Date, ForeignKey, Integer, LargeBinary, String, Enum, Numeric, func
 from sqlalchemy.orm import relationship
+from flask_appbuilder.security.registerviews import RegisterUserDBView
 
 mindate = datetime.date(datetime.MINYEAR, 1, 1)
 
@@ -11,7 +12,9 @@ class User(Model):
     id = Column(Integer, primary_key=True)
     first_name = Column(String(50), nullable=False)
     last_name = Column(String(50), nullable=False)
-    registration_date = Column(Date, nullable=False)
+
+    
+    
     
 
     visits = relationship('Visit', backref='user', lazy=True)
@@ -93,7 +96,6 @@ class Chef(Model):
 
     working_restaurant_id = Column(Integer, ForeignKey('restaurant.id'))
     chef_ratings = relationship('ChefRating', back_populates='chef')
-    average_rating = Column(Numeric, default=0.0, onupdate=func.coalesce(func.avg(ChefRating.stars), 0))
     favorite_foods = relationship('FavoriteFood', back_populates='chef')
 
     def __repr__(self):
