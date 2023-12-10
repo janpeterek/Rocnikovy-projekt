@@ -1,6 +1,7 @@
 import os
 from flask_appbuilder.security.manager import AUTH_DB
 
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 CSRF_ENABLED = True
@@ -39,6 +40,8 @@ LANGUAGES = {
 # ------------------------------
 # GLOBALS FOR GENERAL APP's
 # ------------------------------
+TEMPLATES_AUTO_RELOAD = True
+TEMPLATE_FOLDER = 'app/templates'
 UPLOAD_FOLDER = basedir + "/app/static/uploads/"
 IMG_UPLOAD_FOLDER = basedir + "/app/static/uploads/"
 IMG_UPLOAD_URL = "/static/uploads/"

@@ -6,6 +6,14 @@ from flask_appbuilder.models.group import aggregate_count
 from flask_appbuilder.models.sqla.interface import SQLAInterface
 from flask import render_template
 
+
+
+
+
+
+
+
+
 from . import appbuilder, db
 from .models import Contact, ContactGroup, Gender, Vyrobce, User, Visit, Rating, Chef, Restaurant, ChefRating, FavoriteFood
 
@@ -25,6 +33,7 @@ class UserView(ModelView):
     list_columns = ['id', 'first_name', 'last_name', 'registration_date']
 
     base_order = ("last_name", "asc")
+
 
     def user_detail(self, pk):
         user = self.datamodel.get(pk)
