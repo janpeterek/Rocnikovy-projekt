@@ -34,6 +34,8 @@ class UserView(ModelView):
 
     base_order = ("last_name", "asc")
 
+    
+
 
     def user_detail(self, pk):
         user = self.datamodel.get(pk)

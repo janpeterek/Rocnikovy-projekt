@@ -42,9 +42,9 @@ LANGUAGES = {
 # ------------------------------
 TEMPLATES_AUTO_RELOAD = True
 TEMPLATE_FOLDER = 'app/templates'
-UPLOAD_FOLDER = basedir + "/app/static/uploads/"
-IMG_UPLOAD_FOLDER = basedir + "/app/static/uploads/"
-IMG_UPLOAD_URL = "/static/uploads/"
+UPLOAD_FOLDER = "app/static/uploads/"
+IMG_UPLOAD_FOLDER = "app/static/uploads/" 
+IMG_UPLOAD_URL = "static/uploads/"
 AUTH_TYPE = AUTH_DB
 AUTH_USER_REGISTRATION = True
 AUTH_USER_REGISTRATION_ROLE = 'Public'
