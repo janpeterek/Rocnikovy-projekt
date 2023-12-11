@@ -41,6 +41,8 @@ Mým cílem je dosáhnout projektu, který umožní uživateli se přihlásit do
 9.12. - Přidávání registrace uživatele
         Přidání reCAPTCHA
         Úprava base.html
-10.12 - Přidávání templatů
+10.12. - Přidávání templatů
+11.12. - Změna menu
+         Přidávání fotek
          
          
