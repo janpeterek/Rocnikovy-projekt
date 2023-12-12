@@ -44,5 +44,6 @@ Mým cílem je dosáhnout projektu, který umožní uživateli se přihlásit do
 10.12. - Přidávání templatů
 11.12. - Změna menu
          Přidávání fotek
+12.12. - Spuštění na Dockeru
          
          
