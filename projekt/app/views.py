@@ -14,6 +14,7 @@ from flask import render_template
 
 
 
+
 from . import appbuilder, db
 from .models import Contact, ContactGroup, Gender, Vyrobce, User, Visit, Rating, Chef, Restaurant, ChefRating, FavoriteFood
 
