@@ -2,9 +2,48 @@
 {% block content %}
 <div class="jumbotron">
   <div class="container">
+    <img src="{{ url_for('static', filename='img/logo1.png') }}" alt="Your Image" style="max-width: 150px; max-height: 150px; margin-left: -30px;">
     <h1>{{_("Restaurace")}}</h1>
     <p>{{_("Jan Peterek")}}</p>
-    <img src="/projekt/app/static/uploads/restaurant.jpg" alt="Obrázek">
+    <hr class="my-4">
+    <style>
+    
+    .btn-register {
+        background-color: #4582ec;
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        border: 2px solid #4582ec;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    .btn-register:hover {
+        background-color: #f7f7f6d9;
+        border: 2px solid #2f5bb7;
+    }
+
+    
+    .btn-register img {
+        max-width: 100px;
+        max-height: 100px;
+        margin-left: -10px;
+    }
+
+
+    .jumbotron {
+        border: 5px solid #4582ec; 
+        border-radius: 10px; 
+        padding: 20px;
+        margin-top: 20px;
+    }
+</style>
+
+
+    {% if not current_user.is_authenticated %}
+    <a class="btn-register" href="register/form" role="button">Register</a>
+{% endif %}
+
 
   </div>
   

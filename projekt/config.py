@@ -40,11 +40,13 @@ LANGUAGES = {
 # ------------------------------
 # GLOBALS FOR GENERAL APP's
 # ------------------------------
+
+APP_ICON = "/static/img/logo.jpg"
 TEMPLATES_AUTO_RELOAD = True
 TEMPLATE_FOLDER = 'app/templates'
-UPLOAD_FOLDER = "app/static/uploads/"
-IMG_UPLOAD_FOLDER = "app/static/uploads/" 
-IMG_UPLOAD_URL = "static/uploads/"
+UPLOAD_FOLDER = basedir + "/app/static/uploads/"
+IMG_UPLOAD_FOLDER = basedir + "/app/static/uploads/" 
+IMG_UPLOAD_URL = "/static/uploads/"
 AUTH_TYPE = AUTH_DB
 AUTH_USER_REGISTRATION = True
 AUTH_USER_REGISTRATION_ROLE = 'Public'
@@ -54,9 +56,9 @@ MAIL_PORT = 587
 MAIL_USE_SSL = False
 MAIL_SERVER = "smtp.gmail.com"
 MAIL_USE_TLS = True
-MAIL_USERNAME = "fabtest10@gmail.com"
-MAIL_PASSWORD = "Passw0rdqwerty"
-MAIL_DEFAULT_SENDER = "fabtest10@gmail.com"
+MAIL_USERNAME = "flaskaplikace@gmail.com"
+MAIL_PASSWORD = "Restaurace23!"
+MAIL_DEFAULT_SENDER = "flaskaplikace@gmail.com"
 AUTH_ROLE_ADMIN = "Admin"
 AUTH_ROLE_PUBLIC = "Public"
 APP_NAME = "Restaurace"
