@@ -45,5 +45,9 @@ Mým cílem je dosáhnout projektu, který umožní uživateli se přihlásit do
 11.12. - Změna menu
          Přidávání fotek
 12.12. - Spuštění na Dockeru
+19.12. - Řešení registrace
+23.12. - Zprovoznení registrace
+25.12. - Úprava práv pro registrovaného uživatele
+
          
          
