@@ -48,6 +48,7 @@ Mým cílem je dosáhnout projektu, který umožní uživateli se přihlásit do
 19.12. - Řešení registrace
 23.12. - Zprovoznení registrace
 25.12. - Úprava práv pro registrovaného uživatele
+26.12. - Úprava migrací
 
          
          
