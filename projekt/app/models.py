@@ -8,35 +8,17 @@ from flask_appbuilder.security.registerviews import RegisterUserDBView
 mindate = datetime.date(datetime.MINYEAR, 1, 1)
 
 
-class User(Model):
-    id = Column(Integer, primary_key=True)
-    first_name = Column(String(50), nullable=False)
-    last_name = Column(String(50), nullable=False)
-
-    
-    
-    
-
-    visits = relationship('Visit', backref='user', lazy=True)
-
-    def __repr__(self):
-        return f"{self.first_name} {self.last_name}"
-    
-
-
-
 class Visit(Model):
     id = Column(Integer, primary_key=True)
     date = Column(Date, nullable=False)
     price = Column(Numeric(10, 2), nullable=False)
     food = Column(Enum('svíčková', 'guláš', 'řízek', name='food_enum'), nullable=False)
 
-    user_id = Column(Integer, ForeignKey('user.id'), nullable=False)
     rating = relationship('Rating', lazy=True, back_populates='visit')
     chef_rating = relationship('ChefRating', lazy=True, back_populates='visit')
 
     def __repr__(self):
-        return f"Visit(id={self.id}, date={self.date}, price={self.price}, food='{self.food}', user_id={self.user_id})"
+        return f"Visit(id={self.id}, date={self.date}, price={self.price}, food='{self.food}')"
 
 
 

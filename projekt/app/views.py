@@ -16,7 +16,7 @@ from flask import render_template
 
 
 from . import appbuilder, db
-from .models import Contact, ContactGroup, Gender, Vyrobce, User, Visit, Rating, Chef, Restaurant, ChefRating, FavoriteFood
+from .models import Contact, ContactGroup, Gender, Vyrobce, Visit, Rating, Chef, Restaurant, ChefRating, FavoriteFood
 
 
 def fill_gender():
@@ -28,25 +28,11 @@ def fill_gender():
         db.session.rollback()
 
 
-class UserView(ModelView):
-    datamodel = SQLAInterface(User)
-
-    list_columns = ['id', 'first_name', 'last_name', 'registration_date']
-
-    base_order = ("last_name", "asc")
-
-    
-
-
-    def user_detail(self, pk):
-        user = self.datamodel.get(pk)
-        return render_template('/templates/user.thml', user=user)
-
 
 class VisitView(ModelView):
     datamodel = SQLAInterface(Visit)
 
-    list_columns = ['id', 'date', 'price', 'food', 'user.first_name', 'user.last_name']
+    list_columns = ['id', 'date', 'price', 'food']
 
     base_order = ("date", "asc")
 
@@ -222,14 +208,6 @@ class ContactTimeChartView(GroupByChartView):
         },
     ]
 
-
-appbuilder.add_view(
-    UserView,
-    "Seznam uživatelů",
-    icon="fa-users-line",
-    category="Uživatelé",
-    category_icon="fa-envelope"
-)
 
 appbuilder.add_view(
     VisitView,
