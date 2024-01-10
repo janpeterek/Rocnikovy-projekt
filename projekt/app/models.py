@@ -5,6 +5,7 @@ from sqlalchemy import Column, Date, ForeignKey, Integer, LargeBinary, String, E
 from sqlalchemy.orm import relationship
 from flask_appbuilder.security.registerviews import RegisterUserDBView
 
+
 mindate = datetime.date(datetime.MINYEAR, 1, 1)
 
 
@@ -12,14 +13,17 @@ class Visit(Model):
     id = Column(Integer, primary_key=True)
     date = Column(Date, nullable=False)
     price = Column(Numeric(10, 2), nullable=False)
-    food = Column(Enum('svíčková', 'guláš', 'řízek', name='food_enum'), nullable=False)
+    food = Column(Enum('svíčková', 'guláš', 'řízek', 'bramborák', 'dršťková polévka',
+                        'kuře na paprice','povidla','smažený sýr','vepřo knedlo zelo','žemlovka', name='food_enum'), nullable=False)
+
 
     rating = relationship('Rating', lazy=True, back_populates='visit')
     chef_rating = relationship('ChefRating', lazy=True, back_populates='visit')
 
     def __repr__(self):
-        return f"Visit(id={self.id}, date={self.date}, price={self.price}, food='{self.food}')"
+        return f"Visit(date={self.date}, price={self.price}, food='{self.food}')"
 
+    
 
 
 class Rating(Model):
@@ -47,7 +51,8 @@ class ChefRating(Model):
     chef = relationship('Chef', back_populates='chef_ratings')
 
     def __repr__(self):
-        return f"ChefRating(id={self.id}, stars={self.stars}, comment='{self.comment}', visit_id={self.visit_id}, chef_id={self.chef_id})"
+       return f"ChefRating(id={self.id}, stars={self.stars}, comment='{self.comment}'," \
+       f"visit_id={self.visit_id}, chef_id={self.chef_id})"
 
 
 

@@ -15,6 +15,7 @@ from flask import render_template
 
 
 
+
 from . import appbuilder, db
 from .models import Contact, ContactGroup, Gender, Vyrobce, Visit, Rating, Chef, Restaurant, ChefRating, FavoriteFood
 
@@ -32,19 +33,20 @@ def fill_gender():
 class VisitView(ModelView):
     datamodel = SQLAInterface(Visit)
 
-    list_columns = ['id', 'date', 'price', 'food']
+    list_columns = ['date', 'price',  'food']
 
     base_order = ("date", "asc")
 
     def visit_detail(self, pk):
         visit = self.datamodel.get(pk)
         return render_template('visit.html', visit=visit)
+    
 
 
 class RatingView(ModelView):
     datamodel = SQLAInterface(Rating)
 
-    list_columns = ['id', 'stars', 'comment', 'visit.date', 'restaurant.name']
+    list_columns = ['stars', 'comment', 'visit.date', 'restaurant.name']
 
     base_order = ("stars", "asc")
 
@@ -81,7 +83,7 @@ class RestaurantView(ModelView):
 class ChefRatingView(ModelView):
     datamodel = SQLAInterface(ChefRating)
 
-    list_columns = ['id', 'stars', 'comment', 'visit.date', 'chef.first_name', 'chef.last_name']
+    list_columns = ['stars', 'comment', 'visit.date', 'chef.first_name', 'chef.last_name']
 
     base_order = ("stars", "asc")
 
