@@ -50,6 +50,8 @@ Mým cílem je dosáhnout projektu, který umožní uživateli se přihlásit do
 25.12. - Úprava práv pro registrovaného uživatele
 26.12. - Úprava migrací
 30.12. - Tvorba dokumentace
+9.1. - Dokončení dokumentace
+10.1. - Úprava dat v aplikaci
 
          
          
